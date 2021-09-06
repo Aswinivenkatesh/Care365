@@ -2,6 +2,7 @@ package Pages;
 
 
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.WebElement;
@@ -14,7 +15,7 @@ public class Loginpage extends BaseClass {
 
 
 	//username
-	                           
+                       
 	@FindBy(name= "username")
 	private WebElement txt_username;
 
@@ -28,20 +29,7 @@ public class Loginpage extends BaseClass {
 	@FindBy(xpath= "//button[text()=' Sign in ']")
    private  WebElement btn_login ;
 
-    // Username inside homepage 
-	@FindBy(xpath= "//span[@class='rpm-heading-subtitle']")
-	private WebElement username_text;
-
-    //Profile ICON
-	
-    @FindBy(xpath= "//app-profile-image/img")
-	 private WebElement Profile_icon;
-	
-
-  //Logout button
-	
-	@FindBy(xpath= "//span[text()='Logout']")
-    private WebElement btn_logout;
+   
 	
 	
 	//Forgot password
@@ -58,10 +46,14 @@ public class Loginpage extends BaseClass {
 	@FindBy(xpath= "//button[. = ' Submit ']")
 	private WebElement btn_Submit;
 	
+	//Error message
 	
+	@FindBy(xpath= "//div[@class='hot-toast-message']")
+	private WebElement errorMsg;
+
 	public Loginpage(WebDriver driver) { 
 		try {
-			
+						
         PageFactory.initElements(driver, this);
 		}
 		catch(Exception e)
@@ -86,34 +78,40 @@ public class Loginpage extends BaseClass {
 		btn_login.click();
 	}
 
-	public void checkusernameIsDisplayed() {
+	
 
-		username_text.isDisplayed();
-		System.out.println(username_text.getText());
-	}
-	public void clickLout() {
-		Profile_icon.click();
-		btn_logout.click();
-	}
-
-	public void loginValidUser(String username, String password) {
-		
+	public void loginValidUser(String username, String password) 
+	{
 		txt_username.sendKeys(username);
 		txt_password.sendKeys(password);
 		btn_login.click();
-		System.out.println(username_text.getText());
+		
 	}
 
+	
 
 	public void forgotPassword(String emailId)
 	{
      ForgotPassword_link.click();
      txt_EmailID.sendKeys(emailId);
      btn_Submit.click();
-     
+     HomePage home=new HomePage(driver);
+	 home.mail_confirmation();
+    
+     }
+	
+	public void error_message()
+	{
+		 getErrorMsg().getText();
+		System.out.println("Error message "+getErrorMsg().getText());
+		
 	}
-	
-	
+
+
+	public WebElement getErrorMsg() {
+		return errorMsg;
+	}
+
 }
 
 
