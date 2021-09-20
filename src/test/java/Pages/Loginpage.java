@@ -13,6 +13,9 @@ import Com.QA.Config.BaseClass;
 
 public class Loginpage extends BaseClass {
 
+	
+	
+	//CARE
 
 	//username
                        
@@ -89,14 +92,27 @@ public class Loginpage extends BaseClass {
 	}
 
 	
+	
+	public void login_WithValidUser() 
+	{
+		
+		System.out.println(prop.getProperty("username"));
+		txt_username.sendKeys(prop.getProperty("username"));
+		txt_password.sendKeys(prop.getProperty("password"));
+		btn_login.click();
+		
+	}
+	
 
-	public void forgotPassword(String emailId)
+	public void forgotPassword(String emailId) throws InterruptedException
 	{
      ForgotPassword_link.click();
      txt_EmailID.sendKeys(emailId);
      btn_Submit.click();
      HomePage home=new HomePage(driver);
 	 home.mail_confirmation();
+	 Thread.sleep(1000);
+	 driver.navigate().back();
     
      }
 	

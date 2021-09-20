@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="9" passed="9" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-09-03T16:15:43 IST" name="Default suite" finished-at="2021-09-03T16:16:03 IST" duration-ms="19529">
+  <suite started-at="2021-09-20T12:48:27 IST" name="Default suite" finished-at="2021-09-20T12:49:02 IST" duration-ms="34408">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:StepDefinitions.Runner@791f145a]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2021-09-03T16:15:43 IST" name="Default test" finished-at="2021-09-03T16:16:03 IST" duration-ms="19529">
+    <test started-at="2021-09-20T12:48:27 IST" name="Default test" finished-at="2021-09-20T12:49:02 IST" duration-ms="34408">
       <class name="StepDefinitions.Runner">
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:StepDefinitions.Runner@791f145a]" started-at="2021-09-03T16:15:43 IST" name="setUpClass" finished-at="2021-09-03T16:15:43 IST" duration-ms="385" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:StepDefinitions.Runner@791f145a]" started-at="2021-09-20T12:48:27 IST" name="setUpClass" finished-at="2021-09-20T12:48:28 IST" duration-ms="391" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:StepDefinitions.Runner@791f145a]" started-at="2021-09-03T16:15:43 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-09-03T16:15:53 IST" duration-ms="9484" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:StepDefinitions.Runner@791f145a]" started-at="2021-09-20T12:48:28 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-09-20T12:48:44 IST" duration-ms="15877" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -30,71 +30,135 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:StepDefinitions.Runner@791f145a]" started-at="2021-09-03T16:15:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-09-03T16:15:54 IST" duration-ms="1340" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:StepDefinitions.Runner@791f145a]" started-at="2021-09-20T12:48:44 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-09-20T12:48:44 IST" duration-ms="41" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Verify logout functionalities"]]>
+                <![CDATA["Verify 12 menus are present in home page"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[feature to test login functionality]"]]>
+                <![CDATA["Optional[To Test HomePage Functionality]"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:StepDefinitions.Runner@791f145a]" started-at="2021-09-03T16:15:54 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-09-03T16:15:58 IST" duration-ms="4010" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:StepDefinitions.Runner@791f145a]" started-at="2021-09-20T12:48:44 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-09-20T12:48:50 IST" duration-ms="5872" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Check login with with invalid credentials"]]>
+                <![CDATA["Verify all 12 menus are clickable"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[feature to test login functionality]"]]>
+                <![CDATA["Optional[To Test HomePage Functionality]"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:StepDefinitions.Runner@791f145a]" started-at="2021-09-03T16:15:58 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-09-03T16:16:02 IST" duration-ms="3822" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:StepDefinitions.Runner@791f145a]" started-at="2021-09-20T12:48:50 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-09-20T12:48:50 IST" duration-ms="309" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Check login with with invalid credentials"]]>
+                <![CDATA["Verify Count of Patients"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[feature to test login functionality]"]]>
+                <![CDATA["Optional[Dashboard page functionalities]"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:StepDefinitions.Runner@791f145a]" started-at="2021-09-03T16:16:02 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-09-03T16:16:03 IST" duration-ms="422" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:StepDefinitions.Runner@791f145a]" started-at="2021-09-20T12:48:50 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-09-20T12:48:50 IST" duration-ms="21" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Verify Forgot password functionalities"]]>
+                <![CDATA["Verify Count of Clinics"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[feature to test login functionality]"]]>
+                <![CDATA["Optional[Dashboard page functionalities]"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:StepDefinitions.Runner@791f145a]" started-at="2021-09-03T16:16:03 IST" name="tearDownClass" finished-at="2021-09-03T16:16:03 IST" duration-ms="11" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:StepDefinitions.Runner@791f145a]" started-at="2021-09-20T12:48:50 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-09-20T12:48:50 IST" duration-ms="21" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify Count of Providers"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Dashboard page functionalities]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:StepDefinitions.Runner@791f145a]" started-at="2021-09-20T12:48:50 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-09-20T12:48:50 IST" duration-ms="23" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify Count of caregivers"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Dashboard page functionalities]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:StepDefinitions.Runner@791f145a]" started-at="2021-09-20T12:48:50 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-09-20T12:48:56 IST" duration-ms="5823" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Create a practice with valid data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Practice page functionalities]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:StepDefinitions.Runner@791f145a]" started-at="2021-09-20T12:48:56 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-09-20T12:49:02 IST" duration-ms="5962" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Add Admin under practice with valid credentials"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Admin page functionalities]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:StepDefinitions.Runner@791f145a]" started-at="2021-09-20T12:49:02 IST" name="tearDownClass" finished-at="2021-09-20T12:49:02 IST" duration-ms="11" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

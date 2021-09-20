@@ -47,72 +47,91 @@ public class LoginSteps extends BaseClass{
 
 	@Then("^user is navigated to the home page$")
 	public void user_is_navigated_to_the_home_page() throws Throwable {
-		home= new HomePage(driver);
+        home= new HomePage(driver);
 		home.checkusernameIsDisplayed();
 		System.out.println("Inside Step - logged in successfully");
 		
 	}
-
-
-	//Scenario: Verify Logout functionalities
+	// Homepage menu verification
 	
-    @Given("user inside homepage")
-    public void user_inside_homepage() throws Throwable
-    {
-    	
-      System.out.println("Inside Step -User is inside home page");
-    	
-    }
-    
-	@When("user Clicks on profileicon and clicked on logout button")
-	public void user_clicks_on_profileicon() throws InterruptedException {
-        home=new HomePage(driver);
-    	home.checkusernameIsDisplayed();
-		home.clickLogout();
-		System.out.println("Inside Step - User Clicked on logout button");
-	}
-
-
-	//Scenario : Verify login with invalid credentials
+//	
+//	@When("user has seen all menu options")
+//	public void user_clicks_on_profileicon() throws InterruptedException {
+//		System.out.println("DRIVER:::"+driver);
+//		 home.allMenusList_count();
+//		System.out.println("Inside Step - User has seen all menu options ");
+//	}
+//	
+//	
+//	@Then("User clicked on each menu and navigated to respective page")
+//	public void user_clickedon_eachmenu()
+//	{
+//		home.Clickon_Allmenus();
+//		
+//	}
+//	
 	
-	
-	@When("user enters (.*) and (.*)$")
-	public void user_enters_username_and_password(String username,String password) throws Throwable {
-		login=new Loginpage(driver);
-		System.out.println("Inside Step - User entered username as " + username + "and password as" + password + " clicked on login button");
-		login.loginValidUser(username, password);
-		login.error_message();
-		Thread.sleep(1000*3);
-        driver.navigate().refresh();
-			    
-	}
-
-	@Then("Should see the error message on UI")
-	public void should_see_the_error_message_on_ui() {
-		
-		
-		System.out.println("Inside step : invalid credentials tests are executed");
-
-	}
-
-	// Scenario: Verify Forgot password functionalities
-
-	@When("forgot password steps")
-	public void user_clicks_on_forgot_password() {
-		System.out.println("Inside: User clicked on forgot password link");
-		login = new Loginpage(driver);
-		login.forgotPassword(prop.getProperty("EmailID"));
-		
-		System.out.println("User entered email ID as "+ prop.getProperty("EmailID") +" and clicked on submit");
-
-	}
-	@Then("Success message is displayed")
-	public void success_message_is_displayed() {
-		
-		
-	}
-
 }
 
-
-
+//	//Scenario: Verify Logout functionalities
+//	
+//    @Given("user inside homepage")
+//    public void user_inside_homepage() throws Throwable
+//    {
+//    	
+//      System.out.println("Inside Step -User is inside home page");
+//    	
+//    }
+//    
+//	@When("user Clicks on profileicon and clicked on logout button")
+//	public void user_clicks_on_profileicon() throws InterruptedException {
+//        home=new HomePage(driver);
+//    	home.checkusernameIsDisplayed();
+//		home.clickLogout();
+//		System.out.println("Inside Step - User Clicked on logout button");
+//	}
+//
+//
+//	//Scenario : Verify login with invalid credentials
+//	
+//	
+//	@When("user enters (.*) and (.*)$")
+//	public void user_enters_username_and_password(String username,String password) throws Throwable {
+//		login=new Loginpage(driver);
+//		System.out.println("Inside Step - User entered username as " + username + "and password as" + password + " clicked on login button");
+//		login.loginValidUser(username, password);
+//		login.error_message();
+//		Thread.sleep(1000*3);
+//        driver.navigate().refresh();
+//			    
+//	}
+//
+//	@Then("Should see the error message on UI")
+//	public void should_see_the_error_message_on_ui() {
+//		
+//		
+//		System.out.println("Inside step : invalid credentials tests are executed");
+//
+//	}
+//
+//	// Scenario: Verify Forgot password functionalities
+//
+//	@When("forgot password steps")
+//	public void user_clicks_on_forgot_password() throws InterruptedException {
+//		System.out.println("Inside: User clicked on forgot password link");
+//		login = new Loginpage(driver);
+//		login.forgotPassword(prop.getProperty("EmailID"));
+//		
+//		System.out.println("User entered email ID as "+ prop.getProperty("EmailID") +" and clicked on submit");
+//
+//	}
+//	@Then("Success message is displayed")
+//	public void success_message_is_displayed() {
+//		
+//		
+//	}
+//
+//}
+//
+//
+//
