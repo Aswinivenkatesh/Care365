@@ -196,10 +196,11 @@ public class HomePage extends BaseClass {
 			System.out.println("Title of the page:" +Title_ofPage.getText());
 		}
 		
-		public void click_ClinicsMenu()
+		public void click_ClinicsMenu() 
 		{
 			
 			element_isDisplayed(ClinicsMenu);
+			explicitWait_ElementtoBeClickable(ClinicsMenu);
 			ClinicsMenu.click();
 			Title_ofPage.getText();
 			System.out.println("Title of the page:" +Title_ofPage.getText());
@@ -299,6 +300,8 @@ public class HomePage extends BaseClass {
 				System.out.println(Count_OfMenus+" menus are present in homepage");
 						
 			}
+			else 
+				System.out.println("menu counts are not matched");
 		}
 		
 		

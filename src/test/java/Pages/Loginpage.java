@@ -2,6 +2,9 @@ package Pages;
 
 
 
+import java.io.IOException;
+import java.util.Map;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 
@@ -93,13 +96,30 @@ public class Loginpage extends BaseClass {
 
 	
 	
-	public void login_WithValidUser() 
+	public void login_WithInValidUser() throws IOException 
 	{
 		
-		System.out.println(prop.getProperty("username"));
-		txt_username.sendKeys(prop.getProperty("username"));
-		txt_password.sendKeys(prop.getProperty("password"));
-		btn_login.click();
+		Map<String, String> dataMap=readXLData("Negative data", "Username");
+		System.out.println(dataMap);
+		
+		
+		for(String key: dataMap.keySet()) {
+			driver.navigate().refresh();
+			txt_username.sendKeys(key);
+			txt_password.sendKeys("test@123");
+			btn_login.click();
+			String toastMsg = errorMsg.getText();
+			System.out.println(toastMsg);
+			if(toastMsg.contains("User Not Found for the username:") || toastMsg.contains("Incorrect password"))
+			{
+				System.out.println("Test case is pass");
+			}
+			else 
+				System.out.println("Test case is failed");
+		}
+		
+		
+		
 		
 	}
 	

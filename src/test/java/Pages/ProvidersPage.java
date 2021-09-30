@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import Com.QA.Config.BaseClass;
 
-public class PracticePage extends BaseClass {
+public class ProvidersPage extends BaseClass {
 
 
 	// Add Practice button
@@ -94,7 +94,7 @@ public class PracticePage extends BaseClass {
 	
 	
 	//Constructor
-	public PracticePage(WebDriver driver) { 
+	public ProvidersPage(WebDriver driver) { 
 		try {
 
 			PageFactory.initElements(driver, this);

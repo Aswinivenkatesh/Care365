@@ -2,7 +2,7 @@
 Feature: Dashboard page functionalities
 
 
-@Dashboard1
+@Dashboard1 
   Scenario: Verify Count of Patients
    
     Given user inside the dashboard page
@@ -12,7 +12,7 @@ Feature: Dashboard page functionalities
    @Dashboard2
     Scenario: Verify Count of Clinics
  
-     When user has seen Clinics card 
+    When user has seen Clinics card 
     Then user get the Count of Clinics 
     
     

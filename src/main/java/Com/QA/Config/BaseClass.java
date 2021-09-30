@@ -16,6 +16,7 @@ import java.text.SimpleDateFormat;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.util.Date;
@@ -148,19 +149,38 @@ public class BaseClass {
 	
 	// Basic method to read data from excel 
 	 
-		public static String readXLData(String path, String sheet, int row, int cell)
+		public static Map<String, String> readXLData( String sheet, String Column_name) throws IOException
 		{
+			System.out.println("Inside the excel read method");
+			FileInputStream fis = new FileInputStream("C:\\Users\\admim\\eclipse-workspace\\CARE365_Project\\src\\test\\resources\\Data\\TestData.xlsx");
+			Workbook workbook = new XSSFWorkbook(fis);
+
+			Sheet sheet_name = workbook.getSheet(sheet);
+			//int totalNoOfCols = sheet.getcolumn;
+			int lastRow = sheet_name.getLastRowNum();
+			System.out.println(lastRow+"last row count");
+			Row column = sheet_name.getRow(0);
 			String data="";
-			try
-				{
-					Workbook wb = WorkbookFactory.create(new FileInputStream(path));
-					data = wb.getSheet(sheet).getRow(row).getCell(cell).toString();
-				}
-			catch (Exception e)
-			{
-				e.printStackTrace();
-			}	
-			return data;
+			Map<String, String> dataMap = new HashMap<String, String>();
+	 
+	        for(int i=0; i < column.getLastCellNum(); i++)
+	        {
+	            if(column.getCell(i).getStringCellValue().trim().equals(Column_name))
+	            {
+	            	for(int j=1; j<=lastRow; j++)
+	            	{
+	            		Row row = sheet_name.getRow(j);
+	         
+//	            		data=row.getCell(j).toString();
+	            		data = row.getCell(i).toString();
+	            		System.out.println("Cell value:::" +row.getCell(i));
+
+	            		dataMap.put(row.getCell(i).toString(),row.getCell(i).toString());
+	            	}
+	            			
+	            	}
+	            }
+			return dataMap;
 		}
 	
 	
@@ -173,19 +193,20 @@ public class BaseClass {
 
 		// TODO Auto-generated method stub
 		System.out.println("Inside the excel read method");
-		FileInputStream fis = new FileInputStream("C:\\Users\\admim\\OneDrive\\Documents\\Xpath_Of_Elements.xlsx");
-
+		FileInputStream fis = new FileInputStream("C:\\Users\\admim\\eclipse-workspace\\CARE365_Project\\src\\test\\resources\\Data\\TestData.xlsx");
 		Workbook workbook = new XSSFWorkbook(fis);
 
 		Sheet sheet = workbook.getSheet(Sheet);
 		//int totalNoOfCols = sheet.getcolumn;
 		int lastRow = sheet.getLastRowNum();
+		System.out.println(lastRow+"last row count");
 
 		// Map<String, Map<String, String>> excelFileMap = new HashMap<String, Map<String,String>>();
 
 		Map<String, String> dataMap = new HashMap<String, String>();
 
 		//Looping over entire row
+		
 		for(int i=1; i<=lastRow; i++){
 
 			Row row = sheet.getRow(i);
@@ -195,10 +216,23 @@ public class BaseClass {
 
 			//1st Cell as Value
 			Cell valueCell = row.getCell(1);
-
-			String value = valueCell.getStringCellValue().trim();
-			String key = keyCell.getStringCellValue().trim();
-
+			
+			System.out.println("Value Cell "+keyCell+" "+valueCell);
+			String value;
+			String key;
+			try {
+//			 value = valueCell.getStringCellValue().trim();
+//			key = keyCell.getStringCellValue().trim();
+				
+				value = valueCell.toString();
+			     key =keyCell.toString();
+			} catch (NumberFormatException ex) {
+				value =String.valueOf(valueCell.getNumericCellValue());
+			     key =String.valueOf(keyCell.getNumericCellValue());
+			}
+             
+						
+			
 			//Putting key & value in dataMap
 			dataMap.put(key, value);
 
@@ -271,7 +305,7 @@ public class BaseClass {
 	//Create select class
 
 
-	public static Select creatSelect(WebElement element)
+	public Select select_Dropdown(WebElement element)
 	{
 		Select slc = new Select(element);
 		return slc;

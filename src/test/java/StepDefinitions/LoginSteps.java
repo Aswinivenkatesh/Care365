@@ -71,49 +71,51 @@ public class LoginSteps extends BaseClass{
 //	}
 //	
 	
-}
 
-//	//Scenario: Verify Logout functionalities
-//	
-//    @Given("user inside homepage")
-//    public void user_inside_homepage() throws Throwable
-//    {
-//    	
-//      System.out.println("Inside Step -User is inside home page");
-//    	
-//    }
-//    
-//	@When("user Clicks on profileicon and clicked on logout button")
-//	public void user_clicks_on_profileicon() throws InterruptedException {
-//        home=new HomePage(driver);
-//    	home.checkusernameIsDisplayed();
-//		home.clickLogout();
-//		System.out.println("Inside Step - User Clicked on logout button");
-//	}
-//
-//
-//	//Scenario : Verify login with invalid credentials
-//	
-//	
-//	@When("user enters (.*) and (.*)$")
-//	public void user_enters_username_and_password(String username,String password) throws Throwable {
-//		login=new Loginpage(driver);
-//		System.out.println("Inside Step - User entered username as " + username + "and password as" + password + " clicked on login button");
-//		login.loginValidUser(username, password);
-//		login.error_message();
-//		Thread.sleep(1000*3);
-//        driver.navigate().refresh();
-//			    
-//	}
-//
-//	@Then("Should see the error message on UI")
-//	public void should_see_the_error_message_on_ui() {
-//		
-//		
-//		System.out.println("Inside step : invalid credentials tests are executed");
-//
-//	}
-//
+
+	//Scenario: Verify Logout functionalities
+	
+    @Given("user inside homepage")
+    public void user_inside_homepage() throws Throwable
+    {
+    	
+      System.out.println("Inside Step -User is inside home page");
+    	
+    }
+    
+	@When("user Clicks on profileicon and clicked on logout button")
+	public void user_clicks_on_profileicon() throws InterruptedException {
+        home=new HomePage(driver);
+    	home.checkusernameIsDisplayed();
+		home.clickLogout();
+		System.out.println("Inside Step - User Clicked on logout button");
+	}
+
+
+	
+	
+	//Scenario : Verify login with invalid credentials
+	
+	
+	@When("user enters username and password$")
+	public void user_enters_username_and_password() throws Throwable
+	{
+		login=new Loginpage(driver);
+		login.login_WithInValidUser();
+		Thread.sleep(1000*3);
+        driver.navigate().refresh();
+			    
+	}
+
+
+	@Then("Should see the error message on UI")
+	public void should_see_the_error_message_on_ui() {
+		
+		
+		System.out.println("Inside step : invalid credentials tests are executed");
+
+	}
+
 //	// Scenario: Verify Forgot password functionalities
 //
 //	@When("forgot password steps")
@@ -135,3 +137,4 @@ public class LoginSteps extends BaseClass{
 //
 //
 //
+}

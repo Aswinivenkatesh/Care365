@@ -4,40 +4,63 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import Com.QA.Config.BaseClass;
 
-public class PracticePage extends BaseClass {
+public class ClinicPage extends BaseClass {
 
 
-	// Add Practice button
+	// Add Clinic button
 
-	@FindBy(xpath = "//span[text()=' Add Practice ']")
+	@FindBy(xpath = "//span[text()=' Add Clinic ']")
 	public WebElement ADD_Button;
 	
-	//practice Name
-	// id = "mat-input-5"
+	//Clinic Name
 
 	@FindBy(xpath= "//mat-dialog-content/mat-form-field[1]//input")
-	private WebElement PracticeName_Txt;
+	private WebElement ClinicName_Txt;
 
-	//Phone number 
-	@FindBy(xpath="//mat-dialog-content/mat-form-field[2]//input")
+	
+	// Practice dropdown
+	@FindBy(xpath="//mat-dialog-content/mat-form-field[2]//mat-select")
+	private WebElement PracticeName_Dropdown;
+	
+	//Practice option 
+	
+	@FindBy(xpath="//mat-option//span[contains(text(),' Appollo ')]")
+	private WebElement Practice_Values;
+	
+	
+	//Primary Contact  number 
+	@FindBy(xpath="//mat-dialog-content/mat-form-field[3]//input")
 	public WebElement PhoneNumber_Txt;
 	
-	//Email ID
-
-	@FindBy(xpath="//mat-dialog-content/mat-form-field[3]//input")
-	public WebElement EmailId_Txt;
+	//Primary person contact name
+	
+	@FindBy(xpath="//mat-dialog-content/mat-form-field[4]//input")
+	public WebElement PrimarypersonName_Txt;
+	
+	//Primary person contact number 
+	
+	@FindBy(xpath="//mat-dialog-content/mat-form-field[5]//input")
+	public WebElement PrimarypersonContact_Txt;
+	
+	
+	// Emergency contact number 
+	
+	@FindBy(xpath="//mat-dialog-content/mat-form-field[6]//input")
+	public WebElement EmergencyContact_Txt;
+	
 	
 	//Address 
 
-	@FindBy(xpath="//mat-dialog-content/mat-form-field[4]//input")
+	@FindBy(xpath="//mat-dialog-content/mat-form-field[7]//input")
 	public WebElement Address_Txt;
 
 	
 	//ZipCode
-	@FindBy(xpath="//mat-dialog-content/mat-form-field[5]//input")
+	@FindBy(xpath="//mat-dialog-content/mat-form-field[8]//input")
 	public WebElement ZIPCode_Txt;
 
      //Zipcode search
@@ -50,7 +73,7 @@ public class PracticePage extends BaseClass {
 
 	
 	//City name field
-	@FindBy(xpath = "//mat-dialog-content/mat-form-field[7]//input")
+	@FindBy(xpath = "//mat-dialog-content/mat-form-field[10]//input")
 	public WebElement  City_Txt;
 
   //City dropdown arrow
@@ -64,7 +87,7 @@ public class PracticePage extends BaseClass {
 
 	//NPI Textfield
 
-	@FindBy(xpath="//mat-dialog-content/mat-form-field[8]//input")
+	@FindBy(xpath="//mat-dialog-content/mat-form-field[11]//input")
 	public WebElement NPI_Txt;
 
 	
@@ -94,7 +117,7 @@ public class PracticePage extends BaseClass {
 	
 	
 	//Constructor
-	public PracticePage(WebDriver driver) { 
+	public ClinicPage(WebDriver driver) { 
 		try {
 
 			PageFactory.initElements(driver, this);
@@ -115,14 +138,18 @@ public class PracticePage extends BaseClass {
 	}
 
 	// create_Practice
-	public void create_Practice() throws InterruptedException
+	public void create_Clinic() throws InterruptedException
 
 	{
 
-		PracticeName_Txt.sendKeys("Appollo");
+		ClinicName_Txt.sendKeys("Appollo Clinic");
+		PracticeName_Dropdown.click();
+		Practice_Values.click();
 		PhoneNumber_Txt.click();
 		PhoneNumber_Txt.sendKeys("97878065"+ random_Numbers());
-		EmailId_Txt.sendKeys("Asw"+random_Numbers()+"@gmail.com");
+		PrimarypersonName_Txt.sendKeys("Savitha");
+		PrimarypersonContact_Txt.sendKeys("97878065"+ random_Numbers());
+		EmergencyContact_Txt.sendKeys("97878065"+ random_Numbers());
 		Address_Txt.sendKeys("No:123, Grills Road");
 		ZIPCode_Txt.sendKeys("985");
 		ZIPCode_SearchButton.click();
@@ -159,13 +186,19 @@ public class PracticePage extends BaseClass {
 	
 	
 
-	public void create_Practice(String Pract_name,String Phone_No, String Email_ID, String Address,String Zipcode, String NPI) throws InterruptedException
+	public void create_Clinic(String Clinic_name,String Practice_name,String phone_no,String Personname,String EmailID, String Address,String Zipcode, String NPI) throws InterruptedException
 
 	{
 
-		PracticeName_Txt.sendKeys(Pract_name);
-		PhoneNumber_Txt.sendKeys(Phone_No);
-		EmailId_Txt.sendKeys(Email_ID);
+		ClinicName_Txt.sendKeys(Clinic_name);
+		Select Practicename = select_Dropdown(PracticeName_Dropdown);
+		Practicename.isMultiple();
+		Practicename.selectByValue(Practice_name);
+		PhoneNumber_Txt.sendKeys(phone_no);
+		PrimarypersonName_Txt.sendKeys(Personname);
+		PrimarypersonContact_Txt.sendKeys(phone_no);
+		EmergencyContact_Txt.sendKeys(phone_no);
+		
 		Address_Txt.sendKeys(Address);
 		ZIPCode_Txt.sendKeys(Zipcode);
 		ZIPCode_SearchButton.click();
@@ -185,14 +218,14 @@ public class PracticePage extends BaseClass {
 
 		{
 
-			System.out.println("Practice is created successfully");
+			System.out.println("Clinic is created successfully");
 
 
 		}
 
 		else 
 
-			System.out.println("Practice creation is failed ");
+			System.out.println("Clinic creation is failed ");
 
 	}
 
@@ -200,15 +233,9 @@ public class PracticePage extends BaseClass {
 	public void set_PracticeName(String Practice_name)
 	
 	{
-		PracticeName_Txt.sendKeys(Practice_name);
+		ClinicName_Txt.sendKeys(Practice_name);
 	}
-    // Set Email ID
-	
-	public void set_EmailID(String Email_ID)
-	{
-		EmailId_Txt.sendKeys(Email_ID);
-	}
-	
+   
 	
 	
 	// Set Phone number 
